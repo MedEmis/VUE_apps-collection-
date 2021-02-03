@@ -5,7 +5,10 @@
         <NoticesSidebarVue />
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <NoticesMainVue />
+        <NoticesMainVue
+          :getNotifications="getWPnotifications"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -13,6 +16,7 @@
 
 <script>
 import NoticesMainVue from "./NoticesMain.vue";
+import { mapGetters, mapActions } from "vuex";
 import NoticesSidebarVue from "./NoticesSidebar.vue";
 export default {
   name: "NoticesBody",
@@ -20,10 +24,19 @@ export default {
     NoticesMainVue,
     NoticesSidebarVue,
   },
+  computed: mapGetters(["getWPnotifications", "getWPfetching"]),
+  methods: {
+    ...mapActions(["notificationsRequest"]),
+  },
+  mounted() {
+    if (!this.getWPnotifications.lendth) {
+      this.notificationsRequest();
+    }
+  },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .notices-container {
   flex: 1 1 auto;
 }

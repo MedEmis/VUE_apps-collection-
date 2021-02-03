@@ -1,4 +1,4 @@
-import axiosAPI from './../../API/axiosAPI';
+import {axiosAPI} from './../../API/axiosAPI';
 
 export default {
 	actions: {

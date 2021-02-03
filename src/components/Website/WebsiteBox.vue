@@ -2,7 +2,7 @@
   <div class="website-box">
     <WebsiteheaderVue />
     <transition name="fade" mode="out-in">
-      <router-view />
+      <router-view :usersData="getUsermeta" />
     </transition>
     <WebsiteFooterVue />
   </div>
@@ -11,16 +11,26 @@
 <script>
 import WebsiteFooterVue from "./Footer/WebsiteFooter.vue";
 import WebsiteheaderVue from "./Header/Websiteheader.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "WebsiteBox",
   components: {
     WebsiteheaderVue,
     WebsiteFooterVue,
   },
+  computed: mapGetters(["getUsermeta", "getWPfetching"]),
+  methods: {
+    ...mapActions(["UsermetaRequest"]),
+  },
+  mounted() {
+    if(!this.getUsermeta.lendth){
+		this.UsermetaRequest();
+	}
+  },
 };
 </script>
 
-<style lang="scss"  >
+<style lang="scss">
 :root {
   --blue-background: linear-gradient(180deg, #0077b5 0%, #0e6795 100%);
 }

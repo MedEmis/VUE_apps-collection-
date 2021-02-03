@@ -5,7 +5,10 @@
         <NetworkSidebarVue />
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <NetworkMainVue />
+        <NetworkMainVue
+          :getConnections="getWPconnections"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -13,6 +16,7 @@
 
 <script>
 import NetworkMainVue from "./NetworkMain.vue";
+import { mapGetters, mapActions } from "vuex";
 import NetworkSidebarVue from "./NetworkSidebar.vue";
 export default {
   name: "NetworkBody",
@@ -20,10 +24,23 @@ export default {
     NetworkMainVue,
     NetworkSidebarVue,
   },
+  computed: mapGetters([
+    "getWPconnections",
+    "getWPnotifications",
+    "getWPfetching",
+  ]),
+  methods: {
+    ...mapActions(["connectionsRequest", "notificationsRequest"]),
+  },
+  mounted() {
+    if (!this.getWPconnections.lendth) {
+      this.connectionsRequest();
+    }
+  },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .network-container {
   flex: 1 1 auto;
 }

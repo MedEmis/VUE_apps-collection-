@@ -2,7 +2,11 @@
   <b-container fluid class="jobs-container">
     <b-row class="jobs-wrapper">
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <JobsMainVue />
+        <JobsMainVue
+          :getJobs="getWPjobs"
+          :getAarticles="getWParticles"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
       <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
         <JobsSidebarVue />
@@ -14,16 +18,29 @@
 <script>
 import JobsMainVue from "./JobsMain.vue";
 import JobsSidebarVue from "./JobsSidebar.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "JobsBody",
   components: {
     JobsMainVue,
     JobsSidebarVue,
   },
+  computed: mapGetters(["getWPjobs", "getWParticles", "getWPfetching"]),
+  methods: {
+    ...mapActions(["jobsRequest", "articlesRequest"]),
+  },
+  mounted() {
+    if (!this.getWPjobs.lendth) {
+      this.jobsRequest();
+    }
+    if (!this.getWParticles.lendth) {
+      this.articlesRequest();
+    }
+  },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .jobs-container {
   flex: 1 1 auto;
 }

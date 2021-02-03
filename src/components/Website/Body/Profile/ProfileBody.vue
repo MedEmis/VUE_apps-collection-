@@ -2,7 +2,11 @@
   <b-container class="profile-container" fluid>
     <b-row class="profile-wrapper">
       <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
-        <ProfileMainVue />
+        <ProfileMainVue
+          :getProjects="getWPprojects"
+          :getCourses="getWPcourses"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
       <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
         <ProfileSideBarVue />
@@ -14,12 +18,25 @@
 <script>
 import ProfileMainVue from "./ProfileMain.vue";
 import ProfileSideBarVue from "./ProfileSideBar.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "ProfileBody",
   components: {
     ProfileMainVue,
     ProfileSideBarVue,
+  },
+  computed: mapGetters(["getWPprojects", "getWPcourses", "getWPfetching"]),
+  methods: {
+    ...mapActions(["projectsRequest", "coursesRequest"]),
+  },
+  mounted() {
+    if (!this.getWPprojects.lendth) {
+      this.projectsRequest();
+    }
+    if (!this.getWPcourses.lendth) {
+      this.coursesRequest();
+    }
   },
 };
 </script>

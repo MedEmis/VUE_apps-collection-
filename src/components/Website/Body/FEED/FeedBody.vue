@@ -2,7 +2,11 @@
   <b-container fluid class="network-container">
     <b-row class="profile-wrapper">
       <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
-        <FeedMainVue />
+        <FeedMainVue
+          :getPosts="getWPposts"
+          :getArticles="getWParticles"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
       <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
         <FeedSidebarVue />
@@ -14,11 +18,24 @@
 <script>
 import FeedMainVue from "./FeedMain.vue";
 import FeedSidebarVue from "./FeedSideBar";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "FeedBody",
   components: {
     FeedMainVue,
     FeedSidebarVue,
+  },
+  computed: mapGetters(["getWPposts", "getWParticles", "getWPfetching"]),
+  methods: {
+    ...mapActions(["postsRequest", "articlesRequest"]),
+  },
+  mounted() {
+    if (!this.getWPposts.lendth) {
+      this.postsRequest();
+    }
+    if (!this.getWParticles.lendth) {
+      this.articlesRequest();
+    }
   },
 };
 </script>

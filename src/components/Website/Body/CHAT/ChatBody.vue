@@ -5,7 +5,10 @@
         <ChatSidebarVue />
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <ChatMainVue />
+        <ChatMainVue
+          :getPosts="getWPposts"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -14,16 +17,26 @@
 <script>
 import ChatMainVue from "./ChatMain.vue";
 import ChatSidebarVue from "./ChatSidebar.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ChatBody",
   components: {
     ChatMainVue,
     ChatSidebarVue,
   },
+  computed: mapGetters(["getWPposts", "getWPfetching"]),
+  methods: {
+    ...mapActions(["postsRequest"]),
+  },
+  mounted() {
+    // if (!this.getWPposts.lendth) {
+    //   this.getWPposts();
+    // }
+  },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .chat-container {
   flex: 1 1 auto;
 }
