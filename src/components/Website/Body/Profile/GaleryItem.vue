@@ -1,14 +1,14 @@
 <template>
   <b-row class="user-card">
     <b-col class="col-4 user-card__image">
-      <b-img :src="require('@/assets/linkedIn/' + $attrs.data.avatar)" />
+      <b-img :src="$attrs.data.image" />
     </b-col>
     <b-col class="col-8 user-card__info">
       <b-row class="user-card__info_name">
-        {{ $attrs.data.name }}
+        {{ $attrs.data.title }}
       </b-row>
       <b-row class="user-card__info_views">
-        {{ $attrs.data.viewers }} viewers
+        {{ $attrs.data.views }} viewers
       </b-row>
     </b-col>
     <b-icon

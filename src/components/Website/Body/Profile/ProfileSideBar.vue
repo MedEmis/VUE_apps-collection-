@@ -3,9 +3,16 @@
     <b-row class="px-3">
       <b-col class="col-12">
         <b-row class="mb-4"><DashBoardVue /></b-row>
-        <b-row class="mb-4"><VisitiorsVue /></b-row>
         <b-row class="mb-4"
-          ><GaleryVue :data="courses" title="You may like these courses"
+          ><VisitiorsVue
+            :data="$attrs.getVisitors"
+            :fetching="$attrs.visitordFetching"
+        /></b-row>
+        <b-row v-if="$attrs.getWPcourses" class="mb-4"
+          ><GaleryVue
+            :data="$attrs.getWPcourses.slice(0, 3)"
+            :fetching="$attrs.galleryFetching"
+            title="You may like these courses"
         /></b-row>
       </b-col>
     </b-row>
@@ -22,27 +29,6 @@ export default {
     DashBoardVue,
     VisitiorsVue,
     GaleryVue,
-  },
-  data() {
-    return {
-      courses: [
-        {
-          name: "UX Foundations: Prototyping",
-          avatar: "courses1.png",
-          viewers: "27,959 ",
-        },
-        {
-          name: "Designing with Adobe XD and pro",
-          avatar: "courses2.png",
-          viewers: "9,122 ",
-        },
-        {
-          name: "UX Foundations: Styles and GUIs",
-          avatar: "courses3.png",
-          viewers: "13,858 ",
-        },
-      ],
-    };
   },
 };
 </script>

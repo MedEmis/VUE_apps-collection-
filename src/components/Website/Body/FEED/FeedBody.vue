@@ -2,14 +2,14 @@
   <b-container fluid class="network-container">
     <b-row class="profile-wrapper">
       <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
-        <FeedMainVue
-          :getPosts="getWPposts"
-          :getArticles="getWParticles"
-          :getWFetching="getWPfetching"
-        />
+        <FeedMainVue :getPosts="getWPposts" :getWFetching="getWPfetching" />
       </b-col>
       <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
-        <FeedSidebarVue />
+        <FeedSidebarVue
+          :getArticles="getWParticles"
+          :currentUser="$attrs.currentuser"
+          :getWFetching="getWPfetching"
+        />
       </b-col>
     </b-row>
   </b-container>

@@ -7,6 +7,7 @@
     <b-row class="dashboard-title"
       ><a class="link-block" href="#">See all recomendations</a>
     </b-row>
+    <b-overlay :show="$attrs.fetching" no-wrap></b-overlay>
   </b-col>
 </template>
 

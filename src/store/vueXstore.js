@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import posts from "./modules/posts"
-import WPmodule from "./modules/WPmodule"
+import WPmodule from "./modules/wp_module/WPmodule"
 
 
 Vue.use(Vuex)

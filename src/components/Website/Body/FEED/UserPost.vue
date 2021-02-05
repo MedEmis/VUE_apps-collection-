@@ -5,29 +5,38 @@
         <span class="user-post__title_names">Ted Bell, Annette Nguyen</span> and
         <span class="user-post__title_names">Cody Hawkins</span> liked this
       </b-col>
-      <b-col xl="1" lg="1" md="1" sm="12" xs="1">
-        </b-col>
+      <b-col xl="1" lg="1" md="1" sm="12" xs="1"> </b-col>
     </b-row>
     <hr class="m-0 mb-3" />
     <b-row class="px-3">
       <b-col>
-        <b-row
-          ><b-col class="px-4" lg="6" md="8" sm="10" xs="12"
-            ><VisitorCardVue :data="$attrs.data" /></b-col
-        ></b-row>
+        <b-row>
+          <b-col class="px-4" lg="6" md="8" sm="10" xs="12">
+            <b-row>
+              <b-col class="col-2 m-2">
+                <b-img :src="$attrs.data.avatar" />
+              </b-col>
+              <b-col class="col-9 m-2">
+                <b-row
+                  ><strong>{{ $attrs.data.author }}</strong></b-row
+                >
+                <b-row
+                  ><small>{{ $attrs.data.position }}</small></b-row
+                >
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
         <b-row>
           <b-col class="px-5 position-relative"
-            >{{ $attrs.data.postText }}
-            <span
-              v-if="$attrs.data.postText.length > 300"
-              class="text-overlay"
-            />
+            >{{ $attrs.data.text }}
+            <span v-if="$attrs.data.text.length > 300" class="text-overlay" />
           </b-col>
         </b-row>
         <b-row class="px-5 py-3"
           ><b-button
             variant="white"
-            v-if="$attrs.data.postText.length > 300"
+            v-if="$attrs.data.text.length > 300"
             class="link-block"
             >READ MORE</b-button
           ></b-row
@@ -36,19 +45,15 @@
           <b-col class="px-5">
             <b-img
               v-if="$attrs.data.image"
-              :src="require('@/assets/linkedIn/network/' + $attrs.data.image)"
+              :src="$attrs.data.image"
               fluid-grow
               alt="$attrs.data.image"
             ></b-img>
           </b-col>
         </b-row>
-        <b-row v-if="files.length">
+        <b-row v-if="$attrs.data.attachment">
           <b-col class="px-5">
-            <FileHolderVue
-              v-for="file in files"
-              :key="file.description"
-              :data="file"
-            />
+            <FileHolderVue :data="$attrs.data.attachment" />
           </b-col>
         </b-row>
         <b-row class="mt-3">
@@ -59,7 +64,7 @@
           >
           <b-col lg="2" md="2" sm="2" xs="2" class="user-post__bottom-item"
             ><b-icon icon="chat-fill" scale="1" />{{
-              $attrs.data.answers
+              $attrs.data.comments
             }}</b-col
           >
           <b-col lg="6" md="6" sm="6" class="user-post__bottom-item"></b-col>
@@ -69,24 +74,21 @@
         </b-row>
       </b-col>
     </b-row>
+    <b-overlay :show="$attrs.fetching" no-wrap> </b-overlay>
   </b-col>
 </template>
 
           
           
 <script>
-import VisitorCardVue from "../Profile/VisitorCard.vue";
 import FileHolderVue from "./FileHolder.vue";
 export default {
   name: "User post",
   components: {
-    VisitorCardVue,
     FileHolderVue,
   },
   data() {
-    return {
-      files: this.$attrs.data.files,
-    };
+    return {};
   },
 };
 </script>

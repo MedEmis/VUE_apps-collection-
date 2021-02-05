@@ -10,10 +10,8 @@
             />
           </b-col>
           <b-col xl="10" lg="10" md="10" sm="8" xs="12" class="description">
-            <b-row class="description__name">{{ $attrs.data.name }}</b-row>
-            <b-row class="description__file">{{
-              $attrs.data.description
-            }}</b-row>
+            <b-row class="description__name">{{ $attrs.data.filename }}</b-row>
+            <b-row class="description__file"> {{  $attrs.data.type }} file {{$attrs.data.filesize}} kb</b-row>
           </b-col>
           <b-col xl="1" lg="1" md="1" sm="2" xs="6" class="file"
             ><b-button href="#" variant="outline"

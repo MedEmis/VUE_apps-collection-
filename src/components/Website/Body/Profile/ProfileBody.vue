@@ -3,13 +3,25 @@
     <b-row class="profile-wrapper">
       <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
         <ProfileMainVue
-          :getProjects="getWPprojects"
-          :getCourses="getWPcourses"
-          :getWFetching="getWPfetching"
+          :currentuser="getUserProfileCard"
+          :about="getAboutCard"
+          :getProjects="getProjects"
+          :skills="getSkillsEndoresment"
+          :education="getUserEducation"
+          :profileFetching="getUserProfileCardFetching"
+          :aboutFetching="getAboutCardFetching"
+          :projectFetching="getProjectsFetching"
+          :educationFetching="getUserEducationFetching"
+          :skillsFetching="getSkillsEndoresmentFetching"
         />
       </b-col>
       <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
-        <ProfileSideBarVue />
+        <ProfileSideBarVue
+          :getVisitors="getUserVisitors"
+          :getWPcourses="getCourses"
+          :galleryFetching="getGalleryFetching"
+          :visitordFetching="getVisitorsFetching"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -19,24 +31,38 @@
 import ProfileMainVue from "./ProfileMain.vue";
 import ProfileSideBarVue from "./ProfileSideBar.vue";
 import { mapGetters, mapActions } from "vuex";
-
 export default {
   name: "ProfileBody",
+  data() {
+    return {};
+  },
   components: {
     ProfileMainVue,
     ProfileSideBarVue,
   },
-  computed: mapGetters(["getWPprojects", "getWPcourses", "getWPfetching"]),
+  computed: {
+    ...mapGetters([
+      "getUserProfileCard",
+      "getAboutCard",
+      "getCourses",
+      "getProjects",
+      "getSkillsEndoresment",
+      "getUserEducation",
+      "getUserVisitors",
+      "getUserProfileCardFetching",
+      "getAboutCardFetching",
+      "getGalleryFetching",
+      "getProjectsFetching",
+      "getSkillsEndoresmentFetching",
+      "getUserEducationFetching",
+      "getVisitorsFetching",
+    ]),
+  },
   methods: {
-    ...mapActions(["projectsRequest", "coursesRequest"]),
+    ...mapActions(["ProfilePageActions"]),
   },
   mounted() {
-    if (!this.getWPprojects.lendth) {
-      this.projectsRequest();
-    }
-    if (!this.getWPcourses.lendth) {
-      this.coursesRequest();
-    }
+    //this.ProfilePageActions();
   },
 };
 </script>

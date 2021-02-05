@@ -1,33 +1,33 @@
 <template>
   <b-row class="user-card ml-1" :class="{ unread: $attrs.data.unread }">
     <b-col class="col-2 user-card__image">
-      <b-img
-        class="user-card__image_img"
-        :src="require('@/assets/linkedIn/' + $attrs.data.avatar)"
-      />
+      <b-img class="user-card__image_img" :src="$attrs.data.avatar" />
       <span v-if="$attrs.data.status" class="user-card__image_online">
         <b-icon
-          v-if="!$attrs.data.status.isOnline"
+          v-if="!$attrs.data.isonline[0]"
           icon="circle"
           scale="0.8"
           variant="success"
         ></b-icon>
         <b-icon
-          v-if="$attrs.data.status.isOnline"
+          v-if="$attrs.data.status.isonline[0]"
           icon="circle-fill"
           variant="success"
         ></b-icon>
       </span>
     </b-col>
-    <b-col v-if="$attrs.data.name" class="col-10 user-card__info">
+    <b-col
+      v-if="$attrs.data.author || $attrs.data.nickname"
+      class="col-9 user-card__info"
+    >
       <b-row class="user-card__info_name">
-        {{ $attrs.data.name }}
+        {{ $attrs.data.nickname[0] }}
       </b-row>
       <b-row v-if="$attrs.data.position" class="user-card__info_position">
-        {{ $attrs.data.position }}
+        {{ $attrs.data.position[0] }}
       </b-row>
       <b-row v-if="$attrs.data.connections" class="user-card__info_views">
-        {{ $attrs.data.connections }} connections
+        {{ $attrs.data.connections[0] }} connections
       </b-row>
       <b-row v-if="$attrs.data.lastMessage" class="user-card__info_views">
         <b-img

@@ -23,8 +23,8 @@ const WPstorage = {
 	connections: "wp/v2/connections",
 	notifications: "wp/v2/notifications",
 	posts: "wp/v2/posts",
+	media: "wp/v2/media",
 }
-
 export const axiosAPI = {
 	getPosts() { return axiosInstance.get(URLstorage.posts) },
 	getPaginatedPosts(page, limit) { return axiosInstance.get(`${URLstorage.posts}?_page=${page}&_limit=${limit}`) },
@@ -38,6 +38,7 @@ export const wordpressAPI = {
 	getConnections() { return wordpressInstance.get(WPstorage.connections) },
 	getNotifications() { return wordpressInstance.get(WPstorage.notifications) },
 	getPosts() { return wordpressInstance.get(WPstorage.posts) },
+	getMedia(id) { return wordpressInstance.get(WPstorage.media + "/" + id) },
 }
 
 

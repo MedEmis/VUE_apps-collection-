@@ -2,7 +2,7 @@
   <div class="website-box">
     <WebsiteheaderVue />
     <transition name="fade" mode="out-in">
-      <router-view :usersData="getUsermeta" />
+      <router-view />
     </transition>
     <WebsiteFooterVue />
   </div>
@@ -18,14 +18,16 @@ export default {
     WebsiteheaderVue,
     WebsiteFooterVue,
   },
-  computed: mapGetters(["getUsermeta", "getWPfetching"]),
+  computed: {
+    ...mapGetters(["getUsermeta", "getUserMetaFetching"]),
+  },
   methods: {
     ...mapActions(["UsermetaRequest"]),
   },
-  mounted() {
-    if(!this.getUsermeta.lendth){
-		this.UsermetaRequest();
-	}
+  created() {
+    if (!this.getUsermeta.lendth) {
+      this.UsermetaRequest();
+    }
   },
 };
 </script>

@@ -14,7 +14,6 @@
 
 <script>
 import HeaderNavbarVue from "./components/HeaderNavbar.vue";
-// import MultiStepFormVue from "./components/MultistepForm/MultiStepForm.vue";
 export default {
   name: "App",
   components: { HeaderNavbarVue },
@@ -24,7 +23,6 @@ export default {
 
   methods: {},
 };
-//   <MultiStepFormVue />
 </script>
 
 <style>

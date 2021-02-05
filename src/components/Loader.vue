@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .loader-wrapper {
   position: fixed;
   left: calc(50% - 40px);

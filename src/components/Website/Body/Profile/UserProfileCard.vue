@@ -20,20 +20,20 @@
     <b-row>
       <b-img
         class="col-12 p-0 user-profile-card__bg"
-        :src="require('../../../../assets/linkedIn/profileBG.jpg')"
+        :src="$attrs.data.imageBGurl"
       />
     </b-row>
     <b-row class="user-profile-card__info">
       <b-col class="position-relative" xl="3" lg="4" md="4" sm="12" xs="8">
         <b-img
           class="user-profile-card__avatar-big"
-          :src="require('../../../../assets/linkedIn/userBig.png')"
+          :src="$attrs.data.avatarUrl"
         />
       </b-col>
       <b-col xl="9" lg="8" md="8" sm="12" xs="8" class="px-3">
         <b-row class="py-2">
-          <b-col xl="5" lg="6" md="12" class="user-profile-card__info_name"
-            >Dmitry Kargaev
+          <b-col xl="5" lg="6" md="12" class="user-profile-card__info_name">
+            {{ $attrs.data.nickname }}
             <span>
               <b-img
                 :src="
@@ -48,13 +48,13 @@
                 class="p-1"
                 :src="
                   require('../../../../assets/linkedIn/navigationArrow.png')
-                " /></span
-            >Saint Petersburg, Russian Federation</b-col
+                "
+            /></span>
+            {{ $attrs.adress }}</b-col
           >
         </b-row>
         <b-row class="py-3 user-profile-card__info_text">
-          Freelance UX/UI designer, 80+ projects in web design, mobile apps (iOS
-          & android) and creative projects. Open to offers.
+          {{ $attrs.data.description }}
         </b-row>
         <b-row class="pb-4">
           <b-col xl="4" lg="4" md="5" sm="5" xs="10" class="p-0 mx-2 my-1">
@@ -62,12 +62,13 @@
           </b-col>
           <b-col xl="6" lg="6" md="5" sm="5" xs="10" class="p-0 mx-2 my-1">
             <b-button block variant="outline-primary"
-              >1,043 connections</b-button
+              >{{ $attrs.data.connections }} connections</b-button
             >
           </b-col>
         </b-row>
       </b-col>
     </b-row>
+    <b-overlay :show="$attrs.fetching" no-wrap></b-overlay>
   </b-col>
 </template>
 
@@ -81,6 +82,7 @@ export default {
 .user-profile-card {
   background: rgb(255, 255, 255);
   position: relative;
+  border-radius: 5px;
   &__upper-tools {
     position: absolute;
     width: 95%;
@@ -92,8 +94,7 @@ export default {
     align-items: center;
     &_profile-button {
       margin-right: 20px;
-     
-	}
+    }
     @media (max-width: 700px) {
       width: 90%;
       left: 10%;
@@ -104,6 +105,8 @@ export default {
     }
   }
   &__bg {
+    background: #fff;
+    min-height: 100px;
     @media (max-width: 574px) {
       height: 100px;
     }
