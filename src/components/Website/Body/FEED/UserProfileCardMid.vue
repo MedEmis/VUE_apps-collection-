@@ -3,16 +3,22 @@
     <b-col class="col-12 user-card-mid">
       <b-overlay :show="$attrs.getWFetching" no-wrap></b-overlay>
       <b-row>
-        <b-img class="col-12 p-0 user-card-mid__bg" :src="imageBG" />
+        <b-img
+          class="col-12 p-0 user-card-mid__bg"
+          :src="$attrs.user.imageBGurl"
+        />
       </b-row>
       <b-row class="user-card-mid__info">
         <b-col class="col-12">
-          <b-img class="user-card-mid__avatar-big" :src="avatar" />
+          <b-img
+            class="user-card-mid__avatar-big"
+            :src="$attrs.user.avatarUrl"
+          />
         </b-col>
         <b-col class="pb-3 col-12">
           <b-row class="py-2">
             <b-col v-if="$attrs.user" class="user-card-mid__info_name col-12"
-              >{{ $attrs.user.nickname[0] }}
+              >{{ $attrs.user.nickname }}
               <span>
                 <b-img
                   :src="require('@/assets/linkedIn/linkedInSmallGold.png')"
@@ -24,7 +30,7 @@
             v-if="$attrs.user"
             class="py-3 col-12 user-card-mid__info_text"
           >
-            {{ $attrs.user.description[0] }}
+            {{ $attrs.user.description }}
           </b-row>
         </b-col>
       </b-row>
@@ -33,36 +39,8 @@
 </template>
 
 <script>
-import { wordpressAPI } from "@/API/axiosAPI";
-
 export default {
   name: "UserProfileCardMid",
-  data() {
-    return {
-      avatar: null,
-      imageBG: null,
-    };
-  },
-  methods: {
-    async getImage(id) {
-      if (id) {
-        const response = await wordpressAPI.getMedia(id);
-        console.log(response.data.source_url);
-        this.avatar = response.data.source_url;
-      }
-    },
-    async getBGimage(id) {
-      if (id) {
-        const response = await wordpressAPI.getMedia(id);
-        console.log(response.data.source_url);
-        this.imageBG = response.data.source_url;
-      }
-    },
-  },
-  mounted() {
-    this.getImage(this.$attrs.user.avatar);
-    this.getBGimage(this.$attrs.user.imagebg);
-  },
 };
 </script>
 

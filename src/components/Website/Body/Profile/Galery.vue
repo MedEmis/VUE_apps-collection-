@@ -3,7 +3,11 @@
     <b-row class="dashboard-title"
       ><span class="dashboard-title_text"> {{ $attrs.title }} </span>
     </b-row>
-    <GaleryItemVue v-for="item in $attrs.data" :key="item.name" :data="item" />
+    <GaleryItemVue
+      v-for="item in $attrs.data.slice(0, 3)"
+      :key="item.name"
+      :data="item"
+    />
     <b-row class="dashboard-title"
       ><a class="link-block" href="#">See all recomendations</a>
     </b-row>

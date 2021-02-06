@@ -8,6 +8,7 @@
         </b-row>
       </b-col>
     </b-row>
+    <b-overlay :show="$attrs.getChatListFetching" no-wrap></b-overlay>
   </aside>
 </template>
 

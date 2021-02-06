@@ -28,10 +28,10 @@
           xs="12"
           class="notice-block__info px-4"
         >
-          <b-row class="notice-block__position">{{ $attrs.data.name }}</b-row>
+          <b-row class="notice-block__position">{{ $attrs.data.title }}</b-row>
           <b-row class="notice-block__employment">
             <span class="notice-block__employment_location">{{
-              $attrs.data.location
+              $attrs.data.time
             }}</span>
           </b-row>
         </b-col>
@@ -69,7 +69,7 @@ export default {
   position: relative;
   border-radius: 5px;
   min-height: 78px;
-  font-size: 14px;         
+  font-size: 14px;
 
   &__image {
     display: flex;
@@ -88,6 +88,10 @@ export default {
     }
   }
   &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     @media (max-width: 765px) {
       padding: 0 rem;
     }

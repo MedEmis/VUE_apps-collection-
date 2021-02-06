@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import ProfileMainVue from "./ProfileMain.vue";
-import ProfileSideBarVue from "./ProfileSideBar.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ProfileBody",
@@ -37,8 +35,8 @@ export default {
     return {};
   },
   components: {
-    ProfileMainVue,
-    ProfileSideBarVue,
+    ProfileMainVue: () => import("./ProfileMain.vue"),
+    ProfileSideBarVue: () => import("./ProfileSideBar.vue"),
   },
   computed: {
     ...mapGetters([

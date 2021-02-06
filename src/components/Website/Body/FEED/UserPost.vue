@@ -74,7 +74,7 @@
         </b-row>
       </b-col>
     </b-row>
-    <b-overlay :show="$attrs.fetching" no-wrap> </b-overlay>
+    <b-overlay :show="$attrs.fetching" no-wrap />
   </b-col>
 </template>
 
@@ -83,7 +83,7 @@
 <script>
 import FileHolderVue from "./FileHolder.vue";
 export default {
-  name: "User post",
+  name: "UserPost",
   components: {
     FileHolderVue,
   },
@@ -110,6 +110,7 @@ export default {
 .user-post {
   background: #fff;
   border-radius: 5px;
+  min-height: 200px;
   &__title {
     font-size: 16px;
     line-height: 35px;

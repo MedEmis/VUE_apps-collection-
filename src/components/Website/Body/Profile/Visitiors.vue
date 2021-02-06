@@ -7,7 +7,7 @@
     <VisitorCardVue
       v-for="visitor in $attrs.data"
       :key="visitor.name"
-      :data="visitor.user"
+      :data="visitor"
     />
     <b-overlay :show="$attrs.fetching" no-wrap></b-overlay>
   </b-col>

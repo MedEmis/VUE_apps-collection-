@@ -2,12 +2,14 @@
   <b-container fluid class="network-container">
     <b-row class="network-wrapper">
       <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <NetworkSidebarVue />
+        <NetworkSidebarVue :newConnections="getNewConnections" />
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
         <NetworkMainVue
-          :getConnections="getWPconnections"
-          :getWFetching="getWPfetching"
+          :newConnections="getNewConnections"
+          :recentConnections="getRecentConnections"
+          :newFetching="getNewConnectionsFetching"
+          :recentFetching="getRecentConnectionsFetching"
         />
       </b-col>
     </b-row>
@@ -15,27 +17,26 @@
 </template>
 
 <script>
-import NetworkMainVue from "./NetworkMain.vue";
 import { mapGetters, mapActions } from "vuex";
-import NetworkSidebarVue from "./NetworkSidebar.vue";
 export default {
   name: "NetworkBody",
   components: {
-    NetworkMainVue,
-    NetworkSidebarVue,
+    NetworkMainVue: () => import("./NetworkMain.vue"),
+    NetworkSidebarVue: () => import("./NetworkSidebar.vue"),
   },
   computed: mapGetters([
-    "getWPconnections",
-    "getWPnotifications",
-    "getWPfetching",
+    "getNewConnections",
+    "getRecentConnections",
+    "getNewConnectionsFetching",
+    "getRecentConnectionsFetching",
   ]),
   methods: {
-    ...mapActions(["connectionsRequest", "notificationsRequest"]),
+    ...mapActions(["NetworkPageActions"]),
   },
   mounted() {
-    if (!this.getWPconnections.lendth) {
-      this.connectionsRequest();
-    }
+    this.NetworkPageActions();
+    // if (!this.getRecentConnections.lendth) {
+    // }
   },
 };
 </script>

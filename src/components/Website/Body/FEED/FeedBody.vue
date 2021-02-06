@@ -2,13 +2,19 @@
   <b-container fluid class="network-container">
     <b-row class="profile-wrapper">
       <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
-        <FeedMainVue :getPosts="getWPposts" :getWFetching="getWPfetching" />
+        <FeedMainVue
+          :getPosts="getUserPost"
+          :getWFetching="getUserPostFetching"
+        />
       </b-col>
       <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
         <FeedSidebarVue
-          :getArticles="getWParticles"
-          :currentUser="$attrs.currentuser"
-          :getWFetching="getWPfetching"
+          :getArticles="getArticles"
+          :currentUser="getUserProfileCardMid"
+          :getHashTags="getHashTags"
+          :currentUserFetching="getUserProfileCardMidFetching"
+          :groupsFetching="getMyGroupsFetching"
+          :hashTagsFetching="getHashTagsFetching"
         />
       </b-col>
     </b-row>
@@ -16,25 +22,29 @@
 </template>
 
 <script>
-import FeedMainVue from "./FeedMain.vue";
-import FeedSidebarVue from "./FeedSideBar";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "FeedBody",
   components: {
-    FeedMainVue,
-    FeedSidebarVue,
+    FeedMainVue: () => import("./FeedMain.vue"),
+    FeedSidebarVue: () => import("./FeedSideBar"),
   },
-  computed: mapGetters(["getWPposts", "getWParticles", "getWPfetching"]),
+  computed: mapGetters([
+    "getUserPost",
+    "getUserProfileCardMid",
+    "getArticles",
+    "getHashTags",
+    "getUserProfileCardMidFetching",
+    "getUserPostFetching",
+    "getMyGroupsFetching",
+    "getHashTagsFetching",
+  ]),
   methods: {
-    ...mapActions(["postsRequest", "articlesRequest"]),
+    ...mapActions(["FeedPageActions"]),
   },
   mounted() {
-    if (!this.getWPposts.lendth) {
-      this.postsRequest();
-    }
-    if (!this.getWParticles.lendth) {
-      this.articlesRequest();
+    if (!this.getUserPost.lendth) {
+      this.FeedPageActions();
     }
   },
 };

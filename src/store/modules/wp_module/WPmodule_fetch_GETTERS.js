@@ -65,9 +65,4 @@ export default {
 		return state.NoticesBlockFetching
 	},
 	//-------end------------------
-	getisWPFetching(state) {
-		return state.isWPFetching
-	}
-
-
 }

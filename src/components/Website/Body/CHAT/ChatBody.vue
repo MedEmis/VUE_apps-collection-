@@ -2,12 +2,15 @@
   <b-container fluid class="chat-container">
     <b-row class="chat-wrapper">
       <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <ChatSidebarVue />
+        <ChatSidebarVue
+          :getChatList="getChatList"
+          :getChatListFetching="getChatListFetching"
+        />
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
         <ChatMainVue
-          :getPosts="getWPposts"
-          :getWFetching="getWPfetching"
+          :getChatForm="getChatForm"
+          :getChatFormFetching="getChatFormFetching"
         />
       </b-col>
     </b-row>
@@ -24,14 +27,20 @@ export default {
     ChatMainVue,
     ChatSidebarVue,
   },
-  computed: mapGetters(["getWPposts", "getWPfetching"]),
+  computed: mapGetters([
+    "getChatList",
+    "getChatForm",
+    "getChatListFetching",
+    "getChatFormFetching",
+  ]),
   methods: {
-    ...mapActions(["postsRequest"]),
+    ...mapActions(["ChatPageActions"]),
   },
   mounted() {
     // if (!this.getWPposts.lendth) {
     //   this.getWPposts();
     // }
+    this.ChatPageActions();
   },
 };
 </script>

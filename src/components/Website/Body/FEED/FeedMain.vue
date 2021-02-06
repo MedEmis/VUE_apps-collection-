@@ -4,30 +4,29 @@
       <b-col>
         <b-row class="mb-4"><PostFormVue /></b-row>
         <b-row class="mb-4"><PostSortingVue /></b-row>
-        <b-row class="mb-4">
+        <b-row v-if="$attrs.getPosts.data" class="mb-4">
           <b-col class="p-0">
-            <UserPostVue v-for="post in $attrs.getPosts" :key="post.author" :data="post" :fetching="$attrs.getWFetching"/>
+            <UserPostVue
+              v-for="post in $attrs.getPosts.data.slice().reverse()"
+              :key="post.author"
+              :data="post"
+              :fetching="$attrs.getWFetching"
+            />
           </b-col>
         </b-row>
       </b-col>
+      <b-overlay :show="$attrs.getWFetching" no-wrap />
     </b-row>
   </main>
 </template>
 
 <script>
-import PostFormVue from "./PostForm.vue";
-import PostSortingVue from "./PostSorting.vue";
-import UserPostVue from "./UserPost.vue";
 export default {
   name: "FeedMain",
   components: {
-    PostFormVue,
-    PostSortingVue,
-    UserPostVue,
-  },
-  data() {
-    return {
-    };
+    PostFormVue: () => import("./PostForm.vue"),
+    PostSortingVue: () => import("./PostSorting.vue"),
+    UserPostVue: () => import("./UserPost.vue"),
   },
 };
 </script>

@@ -24,7 +24,7 @@ export default {
           avatar: "visitor1.png",
           avatarfrom: "user.png",
           lastMessage: "Hey, how is your project?",
-          status: { isOnline: true },
+          isonline: "1",
         },
         {
           name: "Theresa Steward",

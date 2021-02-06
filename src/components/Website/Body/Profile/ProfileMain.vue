@@ -26,25 +26,16 @@
 </template>
 
 <script>
-import AboutCardVue from "./AboutCard.vue";
-import ButtonGroupVue from "./ButtonGroup.vue";
-import ProjectsVue from "./Projects.vue";
-import SkillsEndoresmentVue from "./SkillsEndoresment.vue";
-import UserEducationVue from "./UserEducation.vue";
-import UserExperienceVue from "./UserExperience.vue";
-import UserProfileCard from "./UserProfileCard.vue";
-import WebLoader from "@/components/WebLoader";
 export default {
   name: "ProfileMain",
   components: {
-    UserProfileCard,
-    ButtonGroupVue,
-    AboutCardVue,
-    ProjectsVue,
-    SkillsEndoresmentVue,
-    UserExperienceVue,
-    UserEducationVue,
-    WebLoader,
+    UserProfileCard: () => import("./UserProfileCard.vue"),
+    AboutCardVue: () => import("./AboutCard.vue"),
+    ButtonGroupVue: () => import("./ButtonGroup.vue"),
+    ProjectsVue: () => import("./Projects.vue"),
+    SkillsEndoresmentVue: () => import("./SkillsEndoresment.vue"),
+    UserEducationVue: () => import("./UserEducation.vue"),
+    UserExperienceVue: () => import("./UserExperience.vue"),
   },
   data() {
     return {

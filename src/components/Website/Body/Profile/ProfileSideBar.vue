@@ -5,7 +5,7 @@
         <b-row class="mb-4"><DashBoardVue /></b-row>
         <b-row class="mb-4"
           ><VisitiorsVue
-            :data="$attrs.getVisitors"
+            :data="$attrs.getVisitors.data"
             :fetching="$attrs.visitordFetching"
         /></b-row>
         <b-row v-if="$attrs.getWPcourses" class="mb-4"

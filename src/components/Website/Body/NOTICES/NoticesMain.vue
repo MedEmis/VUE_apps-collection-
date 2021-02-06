@@ -3,9 +3,25 @@
     <b-row class="profile-main-wrapper px-1">
       <b-col>
         <b-row class="mb-4"> <DividerVue textLeft="recent" /></b-row>
-        <b-row class="mb-4"> <NoticesBlockVue :data="recent" /></b-row>
+        <b-row class="mb-4">
+          <NoticesBlockVue
+            :data="
+              $attrs.getNotifications.data.filter(
+                (item) => item.status === 'recent'
+              )
+            "
+            :fetching="$attrs.getWFetching"
+        /></b-row>
         <b-row class="mb-4"> <DividerVue textLeft="earlier" /></b-row>
-        <b-row class="mb-4"> <NoticesBlockVue :data="earlier" /></b-row>
+        <b-row class="mb-4">
+          <NoticesBlockVue
+            :data="
+              $attrs.getNotifications.data.filter(
+                (item) => item.status === 'earlier'
+              )
+            "
+            :fetching="$attrs.getWFetching"
+        /></b-row>
       </b-col>
     </b-row>
   </main>

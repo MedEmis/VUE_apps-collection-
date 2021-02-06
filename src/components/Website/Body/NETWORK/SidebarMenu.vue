@@ -26,7 +26,7 @@ export default {
         },
         {
           name: "Invitations",
-          value: 2,
+          value: this.$attrs.newConnections.data.length,
           icon: "record-circle",
           new: true,
         },

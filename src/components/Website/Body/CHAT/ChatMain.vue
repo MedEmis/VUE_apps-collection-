@@ -5,6 +5,7 @@
         <b-row class="mb-4"><ChatFormVue :chat="chat" /> </b-row>
       </b-col>
     </b-row>
+    <b-overlay :show="$attrs.getChatFormFetching" no-wrap></b-overlay>
   </main>
 </template>
 

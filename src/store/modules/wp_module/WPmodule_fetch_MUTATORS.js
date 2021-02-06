@@ -5,7 +5,7 @@ export default {
 	UserMetaOff(state) {
 		state.UserMetaFetching = false//
 	},
-	//=====
+	//==Profile===
 	UserProfileCardOn(state) {
 		state.UserProfileCardFetching = true//
 	},
@@ -54,12 +54,12 @@ export default {
 	VisitorsOff(state) {
 		state.VisitorsFetching = false
 	},
-	//=====
-	HashTagsOn(state) {
-		state.HashTagsFetching = true
+	//==Feed===
+	UserPostOn(state) {
+		state.UserPostFetching = true
 	},
-	HashTagsOff(state) {
-		state.HashTagsFetching = false
+	UserPostOff(state) {
+		state.UserPostFetching = false
 	},
 	//=====
 	MyGroupsOn(state) {
@@ -69,11 +69,11 @@ export default {
 		state.MyGroupsFetching = false
 	},
 	//=====
-	UserPostOn(state) {
-		state.UserPostFetching = true
+	HashTagsOn(state) {
+		state.HashTagsFetching = true
 	},
-	UserPostOff(state) {
-		state.UserPostFetching = false
+	HashTagsOff(state) {
+		state.HashTagsFetching = false
 	},
 	//=====
 	UserProfileCardMidOn(state) {
@@ -82,7 +82,7 @@ export default {
 	UserProfileCardMidOff(state) {
 		state.UserProfileCardMidFetching = false
 	},
-	//=====
+	//===NETWORK==
 	NewConnectionsOn(state) {
 		state.NewConnectionsFetching = true
 	},
@@ -96,7 +96,7 @@ export default {
 	RecentConnectionsOff(state) {
 		state.RecentConnectionsFetching = false
 	},
-	//=====
+	//===JOBS==
 	JobSearchBlockOn(state) {
 		state.JobSearchBlockFetching = true
 	},
@@ -117,7 +117,7 @@ export default {
 	TrackedJobOff(state) {
 		state.TrackedJobFetching = false
 	},
-	//=====
+	//===CHAT==
 	ChatListOn(state) {
 		state.ChatListFetching = true
 	},
@@ -131,7 +131,7 @@ export default {
 	ChatFormOff(state) {
 		state.ChatFormFetching = false
 	},
-	//=====
+	//===NOTICES==
 	NoticesBlockOn(state) {
 		state.NoticesBlockFetching = true
 	},

@@ -3,13 +3,13 @@
     <b-card-body class="p-2">
       <b-card bg-variant="white" text-variant="black">
         <b-row class="pl-4">
-          <b-col xl="6" lg="6" md="6" sm="10" xs="10"
+          <b-col xl="10" lg="10" md="10" sm="10" xs="10"
             ><VisitorCardVue :data="$attrs.data"
           /></b-col>
         </b-row>
         <b-row class="text-right"
           ><small class="text-muted ml-auto">{{
-            $attrs.data.date
+            $attrs.data.time
           }}</small></b-row
         >
       </b-card>

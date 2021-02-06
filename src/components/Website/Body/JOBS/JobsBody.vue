@@ -3,39 +3,49 @@
     <b-row class="jobs-wrapper">
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
         <JobsMainVue
-          :getJobs="getWPjobs"
-          :getAarticles="getWParticles"
-          :getWFetching="getWPfetching"
+          :getJobs="getJobSearchBlock"
+          :getJobSearchBlockFetching="getJobSearchBlockFetching"
         />
       </b-col>
       <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <JobsSidebarVue />
+        <JobsSidebarVue
+          :getAarticles="getArticles"
+          :getMySearches="getMySearches"
+          :getTrackedJob="getTrackedJob"
+          :getMySearchesFetching="getMySearchesFetching"
+          :getTrackedJobFetching="getTrackedJobFetching"
+          :getGalleryFetching="getGalleryFetching"
+        />
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import JobsMainVue from "./JobsMain.vue";
-import JobsSidebarVue from "./JobsSidebar.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "JobsBody",
   components: {
-    JobsMainVue,
-    JobsSidebarVue,
+    JobsMainVue: () => import("./JobsMain.vue"),
+    JobsSidebarVue: () => import("./JobsSidebar.vue"),
   },
-  computed: mapGetters(["getWPjobs", "getWParticles", "getWPfetching"]),
+  computed: mapGetters([
+    "getJobSearchBlock",
+    "getMySearches",
+    "getTrackedJob",
+    "getArticles",
+    "getJobSearchBlockFetching",
+    "getMySearchesFetching",
+    "getTrackedJobFetching",
+    "getGalleryFetching",
+  ]),
   methods: {
-    ...mapActions(["jobsRequest", "articlesRequest"]),
+    ...mapActions(["JobsPageActions"]),
   },
   mounted() {
-    if (!this.getWPjobs.lendth) {
-      this.jobsRequest();
-    }
-    if (!this.getWParticles.lendth) {
-      this.articlesRequest();
-    }
+    this.JobsPageActions();
+    // if (!this.getJobSearchBlock.data.lendth) {
+    // }
   },
 };
 </script>

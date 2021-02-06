@@ -6,8 +6,8 @@
       </b-col>
       <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
         <NoticesMainVue
-          :getNotifications="getWPnotifications"
-          :getWFetching="getWPfetching"
+          :getNotifications="getNoticesBlock"
+          :getWFetching="getNoticesBlockFetching"
         />
       </b-col>
     </b-row>
@@ -24,14 +24,12 @@ export default {
     NoticesMainVue,
     NoticesSidebarVue,
   },
-  computed: mapGetters(["getWPnotifications", "getWPfetching"]),
+  computed: mapGetters(["getNoticesBlock", "getNoticesBlockFetching"]),
   methods: {
-    ...mapActions(["notificationsRequest"]),
+    ...mapActions(["NoticesPageActions"]),
   },
   mounted() {
-    if (!this.getWPnotifications.lendth) {
-      this.notificationsRequest();
-    }
+    this.NoticesPageActions();
   },
 };
 </script>

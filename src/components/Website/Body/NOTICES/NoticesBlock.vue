@@ -4,11 +4,11 @@
       <b-col>
         <NoticeCardVue
           v-for="item in $attrs.data"
-          :key="item.position"
+          :key="item.time"
           :data="item"
         />
-      </b-col>
-    </b-row>
+      </b-col> </b-row
+    ><b-overlay :show="$attrs.fetching" no-wrap></b-overlay>
   </b-col>
 </template>
 

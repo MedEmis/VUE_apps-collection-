@@ -10,7 +10,7 @@
           sm="12"
           xs="12"
         >
-          <b-img :src="require('@/assets/linkedIn/' + $attrs.data.avatar)" />
+          <b-img :src="$attrs.data.logo" />
         </b-col>
         <b-col
           xl="9"
@@ -20,10 +20,10 @@
           xs="12"
           class="job-block__info px-4"
         >
-          <b-row class="job-block__position">{{ $attrs.data.name }}</b-row>
+          <b-row class="job-block__position">{{ $attrs.data.job_title }}</b-row>
           <b-row class="job-block__employment">
             <span class="job-block__employment_empoloyer">{{
-              $attrs.data.employer
+              $attrs.data.company
             }}</span>
             <span class="job-block__employment_location">{{
               $attrs.data.location

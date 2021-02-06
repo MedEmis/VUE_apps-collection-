@@ -21,33 +21,33 @@ export default {
 		notifications: [],
 		//-------end------------------
 		//\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-		//=====component_data=========
+		//=====components_data=========
 		//###>PROFILE<----------------
 		UserProfileCard: {},//done
 		AboutCard: {},//done
 		Courses: {},//done
 		Projects: {},//done
-		SkillsEndoresment: {},
-		UserEducation: {},
+		SkillsEndoresment: {},//--need API
+		UserEducation: {},//--need API
 		Visitors: {},//done
 		//###>FEED<-------------------
-		UserPost: {},
-		UserProfileCardMid: {},
+		UserPost: {},//done
+		UserProfileCardMid: {},//done
 		Articles: {},//done
-		HashTags: {},
-		MyGroups: {},
+		HashTags: {},//--need API
+		MyGroups: {},//--need API
 		//###>NETWORK<----------------
-		NewConnections: {},
-		RecentConnections: {},
+		NewConnections: {},//done
+		RecentConnections: {},//done
 		//###>JOBS<-------------------
-		JobSearchBlock: {},
-		MySearches: {},
-		TrackedJob: {},
+		JobSearchBlock: {},//done
+		MySearches: {},//done
+		TrackedJob: {},//--need API
 		//###>CHAT<-------------------
-		ChatList: {},
-		ChatForm: {},
+		ChatList: {},//--need API
+		ChatForm: {},//--need API
 		//###>NOTICES<----------------
-		NoticesBlock: {},
+		NoticesBlock: {},//done
 		//-------end------------------
 		//\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		//=====component_fetching======
