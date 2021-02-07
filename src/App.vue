@@ -55,5 +55,6 @@ export default {
 @font-face {
   font-family: "Gotham Pro";
   src: local("Gotham Pro"), url(./fonts/GothamPro.ttf) format("truetype");
+  font-display: swap;
 }
 </style>

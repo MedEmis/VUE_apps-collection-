@@ -3,7 +3,7 @@
     <b-row class="profile-main-wrapper px-1">
       <b-col>
         <b-row class="mb-4"> <DividerVue textLeft="recent" /></b-row>
-        <b-row class="mb-4">
+        <b-row class="mb-4" v-if="$attrs.getNotifications.data">
           <NoticesBlockVue
             :data="
               $attrs.getNotifications.data.filter(
@@ -13,7 +13,7 @@
             :fetching="$attrs.getWFetching"
         /></b-row>
         <b-row class="mb-4"> <DividerVue textLeft="earlier" /></b-row>
-        <b-row class="mb-4">
+        <b-row class="mb-4" v-if="$attrs.getNotifications.data">
           <NoticesBlockVue
             :data="
               $attrs.getNotifications.data.filter(

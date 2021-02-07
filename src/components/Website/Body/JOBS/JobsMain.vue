@@ -4,7 +4,7 @@
       <b-col>
         <b-row class="mb-4"> <JobSearchVue /></b-row>
         <b-row class="mb-4"><DividerVue textLeft="jobs for you" /> </b-row>
-        <b-row class="mb-4"
+        <b-row v-if="$attrs.getJobs.data" class="mb-4"
           ><JobSearchBlockVue
             :fetching="$attrs.getJobSearchBlockFetching"
             :data="
@@ -13,7 +13,7 @@
           />
         </b-row>
         <b-row class="mb-4"><DividerVue textLeft="new jobs" /> </b-row>
-        <b-row class="mb-4"
+        <b-row v-if="$attrs.getJobs.data" class="mb-4"
           ><JobSearchBlockVue
             :fetching="$attrs.getJobSearchBlockFetching"
             :data="$attrs.getJobs.data.filter((item) => item.status === 'new')"

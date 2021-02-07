@@ -1,6 +1,6 @@
 <template>
   <b-col>
-    <b-row class="jobs__wrapper">
+    <b-row v-if="$attrs.data" class="jobs__wrapper">
       <b-col>
         <JobSearchItemVue
           v-for="item in $attrs.data.slice().reverse()"

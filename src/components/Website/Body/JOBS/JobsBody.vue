@@ -42,7 +42,7 @@ export default {
   methods: {
     ...mapActions(["JobsPageActions"]),
   },
-  mounted() {
+  created() {
     this.JobsPageActions();
     // if (!this.getJobSearchBlock.data.lendth) {
     // }

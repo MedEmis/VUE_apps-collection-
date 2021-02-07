@@ -94,6 +94,7 @@ export default {
 		}
 	},
 	async VisitorsRequest({ state, commit }) {
+		if (state.Visitors.data && state.Visitors.data.length) return
 		try {
 			commit('VisitorsOn')
 			let visitors = state.visitors

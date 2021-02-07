@@ -50,7 +50,7 @@
                   require('../../../../assets/linkedIn/navigationArrow.png')
                 "
             /></span>
-            {{ $attrs.adress }}</b-col
+            {{ $attrs.data.address }}</b-col
           >
         </b-row>
         <b-row class="py-3 user-profile-card__info_text">

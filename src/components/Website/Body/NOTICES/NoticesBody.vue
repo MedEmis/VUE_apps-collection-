@@ -15,20 +15,20 @@
 </template>
 
 <script>
-import NoticesMainVue from "./NoticesMain.vue";
 import { mapGetters, mapActions } from "vuex";
-import NoticesSidebarVue from "./NoticesSidebar.vue";
 export default {
   name: "NoticesBody",
   components: {
-    NoticesMainVue,
-    NoticesSidebarVue,
+    NoticesMainVue: () =>
+      import(/* webpackPrefetch: true */ "./NoticesMain.vue"),
+    NoticesSidebarVue: () =>
+      import(/* webpackPrefetch: true */ "./NoticesSidebar.vue"),
   },
   computed: mapGetters(["getNoticesBlock", "getNoticesBlockFetching"]),
   methods: {
     ...mapActions(["NoticesPageActions"]),
   },
-  mounted() {
+  created() {
     this.NoticesPageActions();
   },
 };

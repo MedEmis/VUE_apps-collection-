@@ -5,7 +5,7 @@
         <b-row class="mb-4"><NewArticleButtonVue text="Post a job" /> </b-row>
         <b-row class="mb-4"><MySearchesVue /> </b-row>
         <b-row class="mb-4"><TrackedJobVue /> </b-row>
-        <b-row class="mb-4"
+        <b-row class="mb-4" v-if="$attrs.getAarticles.data"
           ><GaleryVue
             :data="$attrs.getAarticles.data"
             title="articles for you"

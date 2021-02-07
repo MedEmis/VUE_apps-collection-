@@ -36,7 +36,7 @@ export default {
   methods: {
     ...mapActions(["ChatPageActions"]),
   },
-  mounted() {
+  created() {
     // if (!this.getWPposts.lendth) {
     //   this.getWPposts();
     // }

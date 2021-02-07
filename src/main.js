@@ -6,7 +6,6 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import VueObserveVisibility from 'vue-observe-visibility'
 import store from './store/vueXstore';
 import router from './router/router';
-import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './styles.scss'
 

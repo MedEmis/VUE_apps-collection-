@@ -29,14 +29,17 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "ProfileBody",
   data() {
     return {};
   },
   components: {
-    ProfileMainVue: () => import("./ProfileMain.vue"),
-    ProfileSideBarVue: () => import("./ProfileSideBar.vue"),
+    ProfileMainVue: () =>
+      import(/* webpackPrefetch: true */ "./ProfileMain.vue"),
+    ProfileSideBarVue: () =>
+      import(/* webpackPrefetch: true */ "./ProfileSideBar.vue"),
   },
   computed: {
     ...mapGetters([
@@ -59,8 +62,8 @@ export default {
   methods: {
     ...mapActions(["ProfilePageActions"]),
   },
-  mounted() {
-    //this.ProfilePageActions();
+  created() {
+    this.ProfilePageActions();
   },
 };
 </script>
