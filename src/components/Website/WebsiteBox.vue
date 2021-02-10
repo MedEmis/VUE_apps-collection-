@@ -18,14 +18,23 @@ export default {
     WebsiteheaderVue,
     WebsiteFooterVue,
   },
+  data() {
+    return {
+      authData: {
+        username: "draganovmaksim9@gmail.com",
+        password: "euswhVsVjD!upZT7UUjE",
+      },
+    };
+  },
   computed: {
     ...mapGetters(["getUsermeta", "getUserMetaFetching"]),
   },
   methods: {
-    ...mapActions(["UsermetaRequest"]),
+    ...mapActions(["UsermetaRequest", "AuthorizationRequest"]),
   },
   created() {
     if (!this.getUsermeta.lendth) {
+      this.AuthorizationRequest(this.authData);
       this.UsermetaRequest();
     }
   },

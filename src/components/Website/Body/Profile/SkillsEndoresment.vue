@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-0">
+  <b-col>
     <b-row>
       <b-col class="p-4 bg-white skills">
         <h5 class="skills__title">Skills & Endoresments</h5>

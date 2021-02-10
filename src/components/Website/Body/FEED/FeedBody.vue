@@ -1,13 +1,14 @@
 <template>
   <b-container fluid class="network-container">
     <b-row class="profile-wrapper">
-      <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
+      <b-col xl="9" lg="8" md="12" sm="12" xs="12">
         <FeedMainVue
+          :createPostRequest="createPostRequest"
           :getPosts="getUserPost"
           :getWFetching="getUserPostFetching"
         />
       </b-col>
-      <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
+      <b-col xl="3" lg="4" md="12" sm="12" xs="12">
         <FeedSidebarVue
           :getArticles="getArticles"
           :currentUser="getUserProfileCardMid"
@@ -40,7 +41,7 @@ export default {
     "getHashTagsFetching",
   ]),
   methods: {
-    ...mapActions(["FeedPageActions"]),
+    ...mapActions(["FeedPageActions", "createPostRequest"]),
   },
   mounted() {
     if (!this.getUserPost.lendth) {

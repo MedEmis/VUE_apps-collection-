@@ -28,7 +28,7 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col class="px-5 position-relative"
+          <b-col class="px-5 user-post__text"
             >{{ $attrs.data.text }}
             <span v-if="$attrs.data.text.length > 300" class="text-overlay" />
           </b-col>
@@ -52,7 +52,7 @@
           </b-col>
         </b-row>
         <b-row v-if="$attrs.data.attachment">
-          <b-col class="px-5">
+          <b-col class="px-5 mt-2">
             <FileHolderVue :data="$attrs.data.attachment" />
           </b-col>
         </b-row>
@@ -123,6 +123,12 @@ export default {
     &_names {
       color: rgb(51, 124, 219);
     }
+  }
+  &__text {
+    position: relative;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   &__bottom-item {
     display: flex;

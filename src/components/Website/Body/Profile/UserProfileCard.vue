@@ -1,5 +1,5 @@
 <template>
-  <b-col class="user-profile-card p-0">
+  <b-col class="user-profile-card">
     <b-row class="user-profile-card__upper-tools">
       <b-button variant="light"
         ><b-icon icon="download" variant="secondary"

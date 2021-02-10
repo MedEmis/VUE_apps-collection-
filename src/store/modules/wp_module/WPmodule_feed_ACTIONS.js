@@ -24,6 +24,22 @@ export default {
 			console.log(error)
 		}
 	},
+	async createPostRequest({ commit }, payload) {
+		try {
+			commit('UserPostOn')
+			const response = await wordpressAPI.setNewPost(payload);
+			console.log("async", response)
+			if (response.status === 200) {
+
+				//dispatch("postsRequest")
+			}
+			setTimeout(() => {
+				commit('UserPostOff')
+			}, 500);
+		} catch (error) {
+			console.log(error)
+		}
+	},
 	UserProfileCardMidRequest({ state, commit }) {
 		try {
 			commit('UserProfileCardMidOn')

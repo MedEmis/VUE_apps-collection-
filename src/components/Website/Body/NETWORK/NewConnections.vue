@@ -1,5 +1,5 @@
 <template>
-  <b-col v-if="$attrs.data" class="p-0">
+  <b-col v-if="$attrs.data">
     <NewConnectionItemVue
       v-for="connection in $attrs.data.slice().reverse()"
       :key="connection.name"

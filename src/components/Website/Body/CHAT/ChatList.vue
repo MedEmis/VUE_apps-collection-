@@ -1,7 +1,7 @@
 <template>
   <b-col class="col-12 side-menu p-0">
     <ChatListItemVue
-      v-for="item in userMasages"
+      v-for="item in $attrs.getChatList"
       :key="item.name"
       :data="item"
       :toggleButton="toggleButton"

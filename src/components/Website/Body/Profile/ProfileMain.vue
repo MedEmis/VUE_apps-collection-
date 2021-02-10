@@ -1,7 +1,7 @@
 <template>
   <main>
     <b-row class="profile-main-wrapper m-0">
-      <b-col>
+      <b-col class="p-0">
         <b-row v-if="$attrs.currentuser" class="mb-4"
           ><UserProfileCard
             :data="$attrs.currentuser"

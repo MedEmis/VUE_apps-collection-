@@ -1,6 +1,6 @@
 
 <template>
-  <b-col class="p-0">
+  <b-col>
     <b-row class="button-group">
       <b-col
         md="4"

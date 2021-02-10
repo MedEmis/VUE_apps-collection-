@@ -3,7 +3,7 @@
     <b-row class="jobs__wrapper">
       <b-col>
         <NoticeCardVue
-          v-for="item in $attrs.data"
+          v-for="item in getNotices()"
           :key="item.time"
           :data="item"
         />
@@ -20,7 +20,16 @@ export default {
     NoticeCardVue,
   },
   data() {
-    return {};
+    return {
+      notices: this.$attrs.data,
+    };
+  },
+  methods: {
+    getNotices() {
+      return this.$attrs.data
+        .map((e) => e)
+        .sort((a, b) => (+a.time.slice(0, 2) > +b.time.slice(0, 2) ? 1 : -1));
+    },
   },
 };
 </script>

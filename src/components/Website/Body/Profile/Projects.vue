@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-0">
+  <b-col>
     <b-row>
       <b-col class="p-4 bg-white project">
         <h5 class="project__title">

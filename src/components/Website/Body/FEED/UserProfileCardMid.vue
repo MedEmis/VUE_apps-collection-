@@ -51,6 +51,7 @@ export default {
   background: #fff;
   min-height: 300px;
   &__bg {
+    border-radius: 5px;
     height: 150px;
     margin-bottom: 90px;
   }

@@ -7,6 +7,17 @@ import ChatPageActions from './WPmodule_chat_ACTIONS'
 import NoticesPageActions from './WPmodule_notices_ACTIONS'
 
 export default {
+	async AuthorizationRequest({ commit }, authData) {
+		try {
+			commit('UserMetaOn')
+			const response = await wordpressAPI.authToken(authData);
+			localStorage.setItem("JWT", response.token)
+			localStorage.setItem("user_nicename", response.user_nicename)
+			commit('UserMetaOff')
+		} catch (error) {
+			console.log(error)
+		}
+	},
 	async UsermetaRequest({ state, commit, dispatch }) {
 		if (state.usermeta.length) return
 		try {
@@ -15,8 +26,10 @@ export default {
 			commit('updateUsermeta', response.data)
 			commit('setVisitors', response.data)
 			commit('updateCurrentUser', response.data)
-			dispatch("ProfilePageActions")
 			commit('UserMetaOff')
+			if (!Object.keys(state.UserProfileCard).length) {
+				dispatch("ProfilePageActions")
+			}
 		} catch (error) {
 			console.log(error)
 		}

@@ -11,7 +11,7 @@ export default {
 		dispatch("VisitorsRequest")
 
 	},
-	async UserProfileCardRequest({ state, commit }) {
+	async UserProfileCardRequest({ state, commit, dispatch }) {
 		if (Object.keys(state.UserProfileCard).length) return
 		try {
 			commit('UserProfileCardOn')
@@ -21,10 +21,10 @@ export default {
 			const imageBGurl = imageBG.data.source_url;
 			let currentUser = { ...state.currentUser, avatarUrl, imageBGurl }
 			commit('updateUserProfileCard', currentUser)
-
 			setTimeout(() => {
 				commit('UserProfileCardOff')
 			}, 250);
+			dispatch("UserProfileCardMidRequest")
 		} catch (error) {
 			console.log(error)
 		}

@@ -1,8 +1,10 @@
 <template>
   <main>
-    <b-row class="profile-main-wrapper px-1">
+    <b-row class="profile-main-wrapper px-1 m-0">
       <b-col>
-        <b-row class="mb-4"><PostFormVue /></b-row>
+        <b-row class="mb-4"
+          ><PostFormVue :createPostRequest="$attrs.createPostRequest"
+        /></b-row>
         <b-row class="mb-4"><PostSortingVue /></b-row>
         <b-row v-if="$attrs.getPosts.data" class="mb-4">
           <b-col class="p-0">

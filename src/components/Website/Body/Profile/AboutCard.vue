@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-0">
+  <b-col>
     <b-row>
       <b-card title="About">
         <b-card-text>

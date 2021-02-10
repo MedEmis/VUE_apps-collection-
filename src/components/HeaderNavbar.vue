@@ -11,6 +11,11 @@
         src="@/assets/vueBootstrap.png"
         style="width: 50px; height: 50px"
       />
+      <img
+        alt="vueBootstrap"
+        src="@/assets/vuex.png"
+        style="width: 50px; height: 50px"
+      />
       <div
         v-if="$route.name === 'lazyload' && getInfinitePosts.length"
         class="text-white"

@@ -7,7 +7,7 @@
     <b-row class="dashboard-vievs">
       <b-col>
         <b-row class="dashboard-vievs__number">367</b-row>
-        <b-row class="dashboard-vievs__text">vievs today</b-row>
+        <b-row class="dashboard-vievs__text">views today</b-row>
       </b-col>
     </b-row>
     <b-row class="dashboard-vievs">

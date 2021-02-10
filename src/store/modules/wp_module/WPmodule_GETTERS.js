@@ -57,7 +57,7 @@ export default {
 	},
 	//CHAT===================
 	getChatList(state) {
-		return state.ChatList
+		return state.Visitors
 	},
 	getChatForm(state) {
 		return state.ChatForm

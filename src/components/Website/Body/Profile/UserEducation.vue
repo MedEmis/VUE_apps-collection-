@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-0">
+  <b-col>
     <b-row>
       <b-col class="p-4 bg-white">
         <h5 class="experience__title">Education</h5>
