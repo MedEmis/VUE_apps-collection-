@@ -1,20 +1,22 @@
 <template>
-  <b-container fluid class="chat-container">
-    <b-row class="chat-wrapper">
-      <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <ChatSidebarVue
-          :getChatList="getChatList"
-          :getChatListFetching="getChatListFetching"
-        />
-      </b-col>
-      <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <ChatMainVue
-          :getChatForm="getChatForm"
-          :getChatFormFetching="getChatFormFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container fluid class="chat-container">
+      <b-row class="chat-wrapper">
+        <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
+          <ChatSidebarVue
+            :getChatList="getChatList"
+            :getChatListFetching="getChatListFetching"
+          />
+        </b-col>
+        <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
+          <ChatMainVue
+            :getChatForm="getChatForm"
+            :getChatFormFetching="getChatFormFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

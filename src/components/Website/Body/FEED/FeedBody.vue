@@ -1,25 +1,27 @@
 <template>
-  <b-container fluid class="network-container">
-    <b-row class="profile-wrapper">
-      <b-col xl="9" lg="8" md="12" sm="12" xs="12">
-        <FeedMainVue
-          :createPostRequest="createPostRequest"
-          :getPosts="getUserPost"
-          :getWFetching="getUserPostFetching"
-        />
-      </b-col>
-      <b-col xl="3" lg="4" md="12" sm="12" xs="12">
-        <FeedSidebarVue
-          :getArticles="getArticles"
-          :currentUser="getUserProfileCardMid"
-          :getHashTags="getHashTags"
-          :currentUserFetching="getUserProfileCardMidFetching"
-          :groupsFetching="getMyGroupsFetching"
-          :hashTagsFetching="getHashTagsFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container fluid class="network-container">
+      <b-row class="profile-wrapper">
+        <b-col xl="9" lg="8" md="12" sm="12" xs="12">
+          <FeedMainVue
+            :createPostRequest="createPostRequest"
+            :getPosts="getUserPost"
+            :getWFetching="getUserPostFetching"
+          />
+        </b-col>
+        <b-col xl="3" lg="4" md="12" sm="12" xs="12">
+          <FeedSidebarVue
+            :getArticles="getArticles"
+            :currentUser="getUserProfileCardMid"
+            :getHashTags="getHashTags"
+            :currentUserFetching="getUserProfileCardMidFetching"
+            :groupsFetching="getMyGroupsFetching"
+            :hashTagsFetching="getHashTagsFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

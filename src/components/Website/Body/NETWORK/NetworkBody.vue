@@ -1,19 +1,21 @@
 <template>
-  <b-container fluid class="network-container">
-    <b-row class="network-wrapper">
-      <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <NetworkSidebarVue :newConnections="getNewConnections" />
-      </b-col>
-      <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <NetworkMainVue
-          :newConnections="getNewConnections"
-          :recentConnections="getRecentConnections"
-          :newFetching="getNewConnectionsFetching"
-          :recentFetching="getRecentConnectionsFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container fluid class="network-container">
+      <b-row class="network-wrapper">
+        <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
+          <NetworkSidebarVue :newConnections="getNewConnections" />
+        </b-col>
+        <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
+          <NetworkMainVue
+            :newConnections="getNewConnections"
+            :recentConnections="getRecentConnections"
+            :newFetching="getNewConnectionsFetching"
+            :recentFetching="getRecentConnectionsFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

@@ -4,8 +4,8 @@ export default {
 	NoticesPageActions({ dispatch }) {
 		dispatch("notificationsRequest")
 	},
-	async notificationsRequest({ state, commit }) {
-		if (state.NoticesBlock.length) return
+	async notificationsRequest({ getters, commit }) {
+		if (Object.keys(getters.getNoticesBlock).length) return
 		try {
 			commit('NoticesBlockOn')
 			const response = await wordpressAPI.getNotifications();

@@ -1,24 +1,26 @@
 <template>
-  <b-container fluid class="jobs-container">
-    <b-row class="jobs-wrapper">
-      <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <JobsMainVue
-          :getJobs="getJobSearchBlock"
-          :getJobSearchBlockFetching="getJobSearchBlockFetching"
-        />
-      </b-col>
-      <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <JobsSidebarVue
-          :getAarticles="getArticles"
-          :getMySearches="getMySearches"
-          :getTrackedJob="getTrackedJob"
-          :getMySearchesFetching="getMySearchesFetching"
-          :getTrackedJobFetching="getTrackedJobFetching"
-          :getGalleryFetching="getGalleryFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container fluid class="jobs-container">
+      <b-row class="jobs-wrapper">
+        <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
+          <JobsMainVue
+            :getJobs="getJobSearchBlock"
+            :getJobSearchBlockFetching="getJobSearchBlockFetching"
+          />
+        </b-col>
+        <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
+          <JobsSidebarVue
+            :getAarticles="getArticles"
+            :getMySearches="getMySearches"
+            :getTrackedJob="getTrackedJob"
+            :getMySearchesFetching="getMySearchesFetching"
+            :getTrackedJobFetching="getTrackedJobFetching"
+            :getGalleryFetching="getGalleryFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

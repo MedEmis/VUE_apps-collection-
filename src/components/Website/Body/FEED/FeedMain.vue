@@ -9,8 +9,8 @@
         <b-row v-if="$attrs.getPosts.data" class="mb-4">
           <b-col class="p-0">
             <UserPostVue
-              v-for="post in $attrs.getPosts.data.slice().reverse()"
-              :key="post.author"
+              v-for="(post, index) in $attrs.getPosts.data.slice().reverse()"
+              :key="index"
               :data="post"
               :fetching="$attrs.getWFetching"
             />

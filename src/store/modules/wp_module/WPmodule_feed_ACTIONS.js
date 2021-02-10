@@ -7,8 +7,8 @@ export default {
 		dispatch("ArticlesRequest")
 		dispatch("HashTagsRequest")
 	},
-	async postsRequest({ state, commit }) {
-		if (state.posts.length) return
+	async postsRequest({ commit, getters }) {
+		if (Object.keys(getters.getUserPost).length) { return }
 		try {
 			commit('UserPostOn')
 			const response = await wordpressAPI.getPosts();
@@ -19,7 +19,7 @@ export default {
 			commit('updatePosts', data)
 			setTimeout(() => {
 				commit('UserPostOff')
-			}, 500);
+			}, 300);
 		} catch (error) {
 			console.log(error)
 		}

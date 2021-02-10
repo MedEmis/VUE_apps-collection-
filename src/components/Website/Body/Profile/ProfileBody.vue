@@ -1,30 +1,32 @@
 <template>
-  <b-container class="profile-container" fluid>
-    <b-row class="profile-wrapper">
-      <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
-        <ProfileMainVue
-          :currentuser="getUserProfileCard"
-          :about="getAboutCard"
-          :getProjects="getProjects"
-          :skills="getSkillsEndoresment"
-          :education="getUserEducation"
-          :profileFetching="getUserProfileCardFetching"
-          :aboutFetching="getAboutCardFetching"
-          :projectFetching="getProjectsFetching"
-          :educationFetching="getUserEducationFetching"
-          :skillsFetching="getSkillsEndoresmentFetching"
-        />
-      </b-col>
-      <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
-        <ProfileSideBarVue
-          :getVisitors="getUserVisitors"
-          :getWPcourses="getCourses"
-          :galleryFetching="getGalleryFetching"
-          :visitordFetching="getVisitorsFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container class="profile-container" fluid>
+      <b-row class="profile-wrapper">
+        <b-col class="pr-4" xl="9" lg="8" md="12" sm="12" xs="12">
+          <ProfileMainVue
+            :currentuser="getUserProfileCard"
+            :about="getAboutCard"
+            :getProjects="getProjects"
+            :skills="getSkillsEndoresment"
+            :education="getUserEducation"
+            :profileFetching="getUserProfileCardFetching"
+            :aboutFetching="getAboutCardFetching"
+            :projectFetching="getProjectsFetching"
+            :educationFetching="getUserEducationFetching"
+            :skillsFetching="getSkillsEndoresmentFetching"
+          />
+        </b-col>
+        <b-col class="pl-4" xl="3" lg="4" md="12" sm="12" xs="12">
+          <ProfileSideBarVue
+            :getVisitors="getUserVisitors"
+            :getWPcourses="getCourses"
+            :galleryFetching="getGalleryFetching"
+            :visitordFetching="getVisitorsFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

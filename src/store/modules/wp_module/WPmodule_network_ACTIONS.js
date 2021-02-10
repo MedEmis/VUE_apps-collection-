@@ -4,8 +4,8 @@ export default {
 	NetworkPageActions({ dispatch }) {
 		dispatch("connectionsRequest")
 	},
-	async connectionsRequest({ state, commit }) {
-		if (state.connections.length) return
+	async connectionsRequest({ getters, commit }) {
+		if (Object.keys(getters.getNewConnections).length) return
 		try {
 			commit('NewConnectionsOn')
 			commit('RecentConnectionsOn')

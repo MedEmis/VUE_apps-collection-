@@ -1,17 +1,19 @@
 <template>
-  <b-container fluid class="notices-container">
-    <b-row class="notices-wrapper">
-      <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
-        <NoticesSidebarVue />
-      </b-col>
-      <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
-        <NoticesMainVue
-          :getNotifications="getNoticesBlock"
-          :getWFetching="getNoticesBlockFetching"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <keep-alive>
+    <b-container fluid class="notices-container">
+      <b-row class="notices-wrapper">
+        <b-col class="pr-4" xl="3" lg="3" md="12" sm="12" xs="12">
+          <NoticesSidebarVue />
+        </b-col>
+        <b-col class="pl-4" xl="9" lg="9" md="12" sm="12" xs="12">
+          <NoticesMainVue
+            :getNotifications="getNoticesBlock"
+            :getWFetching="getNoticesBlockFetching"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </keep-alive>
 </template>
 
 <script>

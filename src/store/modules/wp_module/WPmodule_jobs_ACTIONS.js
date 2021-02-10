@@ -6,8 +6,8 @@ export default {
 		dispatch("jobsSearchesRequest")
 		dispatch("jobsTrackedRequest")
 	},
-	async jobsRequest({ state, commit }) {
-		if (state.JobSearchBlock.length) return
+	async jobsRequest({ commit, getters }) {
+		if (Object.keys(getters.getJobSearchBlock).length) return
 		try {
 			commit('JobSearchBlockOn')
 			const response = await wordpressAPI.getJobs();
@@ -23,7 +23,7 @@ export default {
 		}
 	},
 	async jobsSearchesRequest({ state, commit }) {
-		if (state.MySearches.data.length) return
+		if (state.MySearches.length) return
 		try {
 			commit('MySearchesOn')
 			// const response = await wordpressAPI.getJobs();
@@ -38,7 +38,7 @@ export default {
 		}
 	},
 	async jobsTrackedRequest({ state, commit }) {
-		if (state.TrackedJob.data.length) return
+		if (state.TrackedJob.length) return
 		try {
 			commit('TrackedJobOn')
 			// const response = await wordpressAPI.getJobs();

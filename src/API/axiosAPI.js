@@ -23,11 +23,11 @@ export const axiosAPI = {
 const wordpressInstance = axios.create({
 	// withCredentials: true,
 	//baseURL: "http://http://h68139op.beget.tech/wp-json/",
-	baseURL: "http://headlesswordpress2021.000webhostapp.com/wp-json/",
+	baseURL: "https://headlesswordpress2021.000webhostapp.com/wp-json/",
 
 })
 //const fetchBase = "http://http://http://h68139op.beget.tech/wp-json/"
-const fetchBase = "http://headlesswordpress2021.000webhostapp.com/wp-json/"
+const fetchBase = "https://headlesswordpress2021.000webhostapp.com/wp-json/"
 const WPstorage = {
 	authToken: "jwt-auth/v1/token",
 	usermeta: "wl/v1/usermeta",
